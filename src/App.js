@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from './Components/Pages/Home/Home';
+import {TryUseState} from './Components/Layouts/TryUseState/TryUseState';
+import {TryUseCustom} from './Components/Layouts/TryUseCustom/TryUseCustom';
+import {TryUseEffect} from './Components/Layouts/TryUseEffect/TryUseEffect';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (    
+    <div className="home-main">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/useState" element={<TryUseState />} />
+          <Route path="/useCustom" element={<TryUseCustom />} />
+          <Route path="/useEffect" element={<TryUseEffect />} />
+        </Routes>
+      </BrowserRouter>
+    </div>    
   );
 }
 
