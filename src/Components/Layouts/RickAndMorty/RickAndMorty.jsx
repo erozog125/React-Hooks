@@ -1,42 +1,49 @@
-import React,{useState} from 'react';
-import { Card } from '../../UI/Card/Card';
+import React,{useState, useEffect} from 'react';
+// import { Card } from '../../UI/Card/Card';
 import { Header } from '../Header/Header';
-import Rick from '../../../Images/Rick.png';
-
-
+// import Rick from '../../../Images/Rick.png';
 
 export const RickAndMorty = () => {
 
   const URL = 'https://rickandmortyapi.com/api/character/?name=';
-  const [cards, setCards] = useState([
-    {
-      name: 'Rick',
-      gender: 'Male',
-      image: Rick,
-    },
-  ]);
 
-  const FetchApi = (event) => {
-    if (event.keyCode === 13) {
-      fetch(URL + event.target.value)
-        .then((res) => res.json())
-        .then((data) => {
-          setCards(data.results);
-        });
+  const [keyState, setKeyState] = useState(false);
+  // const [cards, setCards] = useState([
+  //   {
+  //     name: 'Rick',
+  //     gender: 'Male',
+  //     image: Rick,
+  //   },
+  // ]);
+
+  const handleState = (event) =>{
+
+    if (event.code === "Enter") {
+      setKeyState(!keyState);  
+      FetchApi(event)   
     }
+  } 
+ 
+  const FetchApi = (event) => {
+    console.log(URL+event.target);
+  //   fetch(URL + event)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //   setCards(data.results);
+  // });    
   };
 
   return (
     <>
-    <Header />
+      <Header />
       <div className="div-home">
         <h2>What character do you want to show?</h2>
-        <input className='input-character' placeholder="Find a character" onKeyUp={FetchApi} />
-        <div className="div-cards">
+        <input className='input-character' placeholder="Find a character" onKeyUp={handleState} />
+        {/* <div className="div-cards">
           {cards.map((character) => (
             <Card key={character.name} card={character} />
           ))}
-        </div>
+        </div> */}
       </div>    
     </>
   );
