@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cookie&family=Fuzzy+Bubbles&family=Lobster&family=Pacifico&family=Shadows+Into+Light&family=Vujahday+Script&display=swap');
 
 body {
   margin: 0;
@@ -19,7 +19,11 @@ h1 {
 }
 
 .header {
-	margin-top: 5rem;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .btn-style {
@@ -106,4 +110,31 @@ hr {
 
 .Active {
   filter: brightness();
+}
+
+.card {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #010f20;
+	display: flex;
+	justify-content: center;
+}
+
+.div-cards {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.input-character {
+	width: 20rem;
+	height: 2rem;
+	background-color: #1059b3;
+	border-radius: 10px;
+	border: groove 5px #030e1a;
+	color: #ee6947;
+	font-size: 2rem;
+	font-family: 'Cookie', cursive;
 }
